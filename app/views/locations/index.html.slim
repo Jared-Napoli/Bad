@@ -14,7 +14,7 @@
     table.table.table-striped
       thead
         tr
-          th 
+          th
             | Title
           th
             | Location Type
@@ -26,3 +26,5 @@
               = link_to location['title'], location_path(id: location['woeid'])
             td
               = location['location_type']
+  btn
+    = link_to 'Admin', admin_index_path, class: 'btn btn-primary home-admin'

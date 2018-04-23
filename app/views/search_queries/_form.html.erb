@@ -1,0 +1,27 @@
+<%= form_with(model: search_query, local: true) do |form| %>
+  <% if search_query.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(search_query.errors.count, "error") %> prohibited this search_query from being saved:</h2>
+
+      <ul>
+      <% search_query.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :query_string %>
+    <%= form.text_field :query_string %>
+  </div>
+
+  <div class="field">
+    <%= form.label :query_response %>
+    <%= form.text_area :query_response %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

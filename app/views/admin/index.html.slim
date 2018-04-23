@@ -1,0 +1,29 @@
+.container(style="margin-top: 1rem")
+  h1
+    | Admin Page
+  h2
+    | Stored Search Queries
+
+
+.container(style="margin-top: 1rem")
+  - if @locations.blank?
+    h3
+      | Nothing to see here... :( Try search again.
+  - else
+    table.table.table-striped
+      thead
+        tr
+          th
+            | Query String
+          th
+            | Delete?
+
+      tbody
+        - @locations.each do |location|
+          tr
+            td
+              = location.query_string
+            td
+              = button_to 'Delete?', search_query_path(id: location['id']), :method => :delete, class: 'btn btn-primary'
+  btn
+    = link_to 'Home', root_path, class: 'btn btn-primary home-admin'
